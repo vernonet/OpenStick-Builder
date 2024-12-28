@@ -30,6 +30,7 @@ apt install -qqy --no-install-recommends \
     systemd-timesyncd \
     tzdata \
     wireguard-tools \
+    mc \
     wpasupplicant
 apt clean
 rm -rf /var/lib/apt/lists/*
