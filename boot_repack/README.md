@@ -1,4 +1,4 @@
-Quick edit of the database in boot.img:
+Quick edit of the database Device Tree in boot.img:
 - edit test.dts
 - run script
   ```shell
