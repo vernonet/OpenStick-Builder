@@ -176,6 +176,7 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
 My personal experience:
 - To enable RNDIS on **MF800** boards
   ```shell
+  sudo apt update
   sudo apt install  libusbgx2
   sudo gt load --path /etc/gt/templates rndis-os-desc.scheme
   ```
