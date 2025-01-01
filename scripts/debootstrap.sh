@@ -69,7 +69,7 @@ mkdir -p ${CHROOT}/lib/firmware/msm-firmware-loader
 
 # testing copy leds config files
 cp leds_config/leds_config.sh ${CHROOT}/home/user
-cp leds_config/leds_config.service ${CHROOT}/etc/systemmd/system
+cp leds_config/leds_config.service ${CHROOT}/etc/systemd/system
 
 # update fstab
 echo "PARTUUID=80780b1d-0fe1-27d3-23e4-9244e62f8c46\t/boot\text2\tdefaults\t0 2" > ${CHROOT}/etc/fstab
