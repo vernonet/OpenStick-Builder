@@ -11,7 +11,9 @@ debootstrap --foreign --arch arm64 \
 
 cp $(which qemu-aarch64-static) ${CHROOT}/usr/bin
 
+#------------------------------------------------------------------------------------------
 #chroot ${CHROOT} qemu-aarch64-static /bin/bash /debootstrap/debootstrap --second-stage
+#------------------------------------------------------------------------------------------
 
 cat << EOF > ${CHROOT}/etc/apt/sources.list
 deb http://deb.debian.org/debian ${RELEASE} main contrib non-free-firmware
