@@ -174,6 +174,11 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
 ---------------------------------------------------------------------------------------------------
   
 My personal experience:
+- To set the APN for your cellular network provider:
+  ```shell
+  sudo nmcli connection modify lte gsm.apn <your_apn>
+  sudo nmcli connection up lte
+  ```
 - To enable RNDIS on **MF800** boards
   ```shell
   sudo apt update
