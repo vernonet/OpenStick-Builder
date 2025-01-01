@@ -193,6 +193,10 @@ My personal experience:
   echo phy0tx >  /sys/class/leds/green:wlan/trigger
   echo phy0radio >  /sys/class/leds/blue:wan_blue/trigger
   ```
+  don't forget to make the script executable
+  ```shell
+  chmod +x leds_config.sh
+  ```
   create file "leds_config.service" on /etc/systemmd/system
   ```shell
   [Unit]
