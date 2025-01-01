@@ -41,6 +41,9 @@ rm -f ${CHROOT}/setup.sh
 echo -n > ${CHROOT}/root/.bash_history
 
 echo ${HOST_NAME} > ${CHROOT}/etc/hostname
+#------------------------------------------------------------------------------------------
+cp /etc/hosts ${CHROOT}/etc/hosts
+#------------------------------------------------------------------------------------------
 sed -i "/localhost/ s/$/ ${HOST_NAME}/" ${CHROOT}/etc/hosts
 
 # setup systemd services
