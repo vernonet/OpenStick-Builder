@@ -183,3 +183,29 @@ My personal experience:
   ```shell
   echo usb-gadget >  /sys/class/leds/green:sms/trigger
   ```
+- Adding LED configuration to startup:
+  create file leds_config.sh on /home/user 
+  ```shell
+  #!/bin/sh
+  
+  echo usb-gadget >  /sys/class/leds/green:sms/trigger
+  echo phy0tx >  /sys/class/leds/green:wlan/trigger
+  echo phy0radio >  /sys/class/leds/blue:wan_blue/trigger
+  ```
+  create file "leds_config.service" on /etc/systemmd/system
+  ```shell
+  [Unit]
+  Description=Config Leds
+  After=sys-kernel-config.mount
+
+  [Service]
+  Type=oneshot
+  ExecStart=/home/user/leds_config.sh
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+  create service
+  ```shell
+  systemctl enable leds_config
+  ```
