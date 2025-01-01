@@ -173,7 +173,7 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
   
 ---------------------------------------------------------------------------------------------------
   
-#My personal experience:
+# My personal experience:
 Battery charging does not work properly, in fastboot mode it is a little better.
 - To set the APN for your cellular network provider:
   ```shell
