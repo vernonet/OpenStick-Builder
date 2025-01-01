@@ -2981,6 +2981,8 @@
 		pinctrl-0 = <0x98>;
 		pinctrl-names = "default";
 
+         /*0x11,0x14,0x15,0x16,0x17,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x0a,0x0b,0x0c, 6,7,8,9*/
+
 		led-bat-r {
 			color = <0x01>;
 			default-state = "off";
@@ -2995,12 +2997,12 @@
 			gpios = <0x49 0x19 0x00>;
 		};
 		
-		led-bat-b {
-			color = <0x03>;
-			default-state = "off";      /*0x11,0x16,0x17,0x1a,0x1b,0x1c,0x0a,0x0b, 6,7,8,9*/
-			function = "battery_blue";
-			gpios = <0x49 0x08 0x00>;
-		};
+		/*led-bat-b {*/
+		/*	color = <0x03>;*/
+		/*	default-state = "on"; */    
+		/*	function = "battery_blue";*/
+		/*	gpios = <0x49 0x7 0x00>; */ /*???*/
+		/*};*/
 
 		led-wan-r {
 			color = <0x01>;
@@ -3018,16 +3020,23 @@
 
 		led-wan-b {
 			color = <0x03>;
-			default-state = "on";    /*my wan blue*/
+			default-state = "off";    /*my wan blue*/
 			function = "wan_blue";
 			gpios = <0x49 0x13 0x00>;
 		};
 		
 		led-sms-g {
 			color = <0x02>;
-			default-state = "off";       /*my sms green; 0x8 wlan???*/
+			default-state = "off";       /*my sms green*/
 			function = "sms";
 			gpios = <0x49 0x09 0x00>;
+		};
+		
+		led-wlan-g {
+			color = <0x02>;
+			default-state = "off";       /*my wlan green*/
+			function = "wlan";
+			gpios = <0x49 0x08 0x00>;
 		};
 	};
 };
