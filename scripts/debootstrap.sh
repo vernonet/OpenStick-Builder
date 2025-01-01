@@ -52,11 +52,16 @@ cp -a configs/system/* ${CHROOT}/etc/systemd/system
 cp -a scripts/msm-firmware-loader.sh ${CHROOT}/usr/sbin
 
 # setup NetworkManager
+mkdir ${CHROOT}/etc/NetworkManager
+mkdir ${CHROOT}/etc/NetworkManager/system-connections
 cp configs/*.nmconnection ${CHROOT}/etc/NetworkManager/system-connections
 chmod 0600 ${CHROOT}/etc/NetworkManager/system-connections/*
+touch ${CHROOT}/etc/NetworkManager/NetworkManager.conf
 sed -i '/\[main\]/a dns=dnsmasq' ${CHROOT}/etc/NetworkManager/NetworkManager.conf
 
 # enable autoconnect for usb0
+mkdir ${CHROOT}/etc/udev
+mkdir ${CHROOT}/etc/udev/rules.d
 cat << EOF > ${CHROOT}/etc/udev/rules.d/99-nm-usb0.rules
 SUBSYSTEM=="net", ACTION=="add|change|move", ENV{DEVTYPE}=="gadget", ENV{NM_UNMANAGED}="0"
 EOF
@@ -75,6 +80,7 @@ cp dtbs/* ${CHROOT}/boot/dtbs/qcom
 mkdir -p ${CHROOT}/lib/firmware/msm-firmware-loader
 
 # testing copy leds config files
+mkdir -p ${CHROOT}/home/user
 cp leds_config/leds_config.sh ${CHROOT}/home/user
 cp leds_config/leds_config.service ${CHROOT}/etc/systemd/system
 
