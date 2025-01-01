@@ -173,7 +173,8 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
   
 ---------------------------------------------------------------------------------------------------
   
-My personal experience:
+#My personal experience:
+Battery charging does not work properly, in fastboot mode it is a little better.
 - To set the APN for your cellular network provider:
   ```shell
   sudo nmcli connection modify lte gsm.apn <your_apn>
@@ -218,5 +219,6 @@ My personal experience:
   ```
   create service
   ```shell
-  systemctl enable leds_config
+  sudo systemctl enable leds_config
+  sudo systemctl reboot 
   ```
