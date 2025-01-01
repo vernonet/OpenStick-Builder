@@ -1,0 +1,12 @@
+[Unit]
+Description=Config Leds
+After=sys-kernel-config.mount
+
+
+[Service]
+Type=oneshot
+ExecStart=/home/user/leds_config.sh
+
+
+[Install]
+WantedBy=multi-user.target
