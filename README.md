@@ -184,6 +184,7 @@ My personal experience:
   echo usb-gadget >  /sys/class/leds/green:sms/trigger
   ```
 - Adding LED configuration to startup:
+
   create file leds_config.sh on /home/user 
   ```shell
   #!/bin/sh
