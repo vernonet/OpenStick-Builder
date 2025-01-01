@@ -179,3 +179,7 @@ My personal experience:
   sudo apt install  libusbgx2
   sudo gt load --path /etc/gt/templates rndis-os-desc.scheme
   ```
+- Controlling LED behavior,for example:
+  ```shell
+  echo usb-gadget >  /sys/class/leds/green:sms/trigger
+  ```
