@@ -31,6 +31,7 @@ apt install -qqy --no-install-recommends \
     tzdata \
     wireguard-tools \
     mc \
+    libusbgx2 \
     wpasupplicant
 apt clean
 rm -rf /var/lib/apt/lists/*
