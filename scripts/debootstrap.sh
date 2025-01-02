@@ -68,10 +68,12 @@ cp dtbs/* ${CHROOT}/boot/dtbs/qcom
 # create missing directory
 mkdir -p ${CHROOT}/lib/firmware/msm-firmware-loader
 
-# testing copy leds config files
+# testing copy leds config files, comment out the following 5 lines if you don't want automatic LED setup 
 mkdir -p ${CHROOT}/home/user
 cp leds_config/leds_config.sh ${CHROOT}/home/user
+chmod +x ${CHROOT}/home/user/leds_config.sh
 cp leds_config/leds_config.service ${CHROOT}/etc/systemd/system
+cp leds_config/multi-user.target.wants/leds_config.service ${CHROOT}/etc/systemd/system/multi-user.target.wants
 
 # update fstab
 echo "PARTUUID=80780b1d-0fe1-27d3-23e4-9244e62f8c46\t/boot\text2\tdefaults\t0 2" > ${CHROOT}/etc/fstab
