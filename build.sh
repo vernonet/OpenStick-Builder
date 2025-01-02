@@ -15,5 +15,8 @@ scripts/debootstrap.sh
 echo "\nBuild gadget-tools\n"
 scripts/build_gt.sh
 
+echo "\nCreate leds_config service\n"
+scripts/copy_leds_config.sh
+
 echo "\nCreate images\n"
 scripts/build_images.sh
