@@ -11,9 +11,8 @@ debootstrap --foreign --arch arm64 \
 
 cp $(which qemu-aarch64-static) ${CHROOT}/usr/bin
 
-#------------------------------------------------------------------------------------------
-#chroot ${CHROOT} qemu-aarch64-static /bin/bash /debootstrap/debootstrap --second-stage
-#------------------------------------------------------------------------------------------
+update-binfmts --enable
+chroot ${CHROOT} qemu-aarch64-static /bin/bash /debootstrap/debootstrap --second-stage
 
 cat << EOF > ${CHROOT}/etc/apt/sources.list
 deb http://deb.debian.org/debian ${RELEASE} main contrib non-free-firmware
@@ -28,9 +27,7 @@ mount -o bind /dev/pts/ ${CHROOT}/dev/pts/
 mount -o bind /run ${CHROOT}/run/
 
 cp scripts/setup.sh ${CHROOT}
-#------------------------------------------------------------------------------------------
-#chroot ${CHROOT} qemu-aarch64-static /bin/sh -c /setup.sh
-#------------------------------------------------------------------------------------------
+chroot ${CHROOT} qemu-aarch64-static /bin/sh -c /setup.sh
 
 # cleanup
 for a in proc sys dev/pts dev run; do
@@ -41,9 +38,6 @@ rm -f ${CHROOT}/setup.sh
 echo -n > ${CHROOT}/root/.bash_history
 
 echo ${HOST_NAME} > ${CHROOT}/etc/hostname
-#------------------------------------------------------------------------------------------
-cp /etc/hosts ${CHROOT}/etc/hosts
-#------------------------------------------------------------------------------------------
 sed -i "/localhost/ s/$/ ${HOST_NAME}/" ${CHROOT}/etc/hosts
 
 # setup systemd services
@@ -52,16 +46,11 @@ cp -a configs/system/* ${CHROOT}/etc/systemd/system
 cp -a scripts/msm-firmware-loader.sh ${CHROOT}/usr/sbin
 
 # setup NetworkManager
-mkdir ${CHROOT}/etc/NetworkManager
-mkdir ${CHROOT}/etc/NetworkManager/system-connections
 cp configs/*.nmconnection ${CHROOT}/etc/NetworkManager/system-connections
 chmod 0600 ${CHROOT}/etc/NetworkManager/system-connections/*
-touch ${CHROOT}/etc/NetworkManager/NetworkManager.conf
 sed -i '/\[main\]/a dns=dnsmasq' ${CHROOT}/etc/NetworkManager/NetworkManager.conf
 
 # enable autoconnect for usb0
-mkdir ${CHROOT}/etc/udev
-mkdir ${CHROOT}/etc/udev/rules.d
 cat << EOF > ${CHROOT}/etc/udev/rules.d/99-nm-usb0.rules
 SUBSYSTEM=="net", ACTION=="add|change|move", ENV{DEVTYPE}=="gadget", ENV{NM_UNMANAGED}="0"
 EOF
@@ -78,11 +67,6 @@ cp dtbs/* ${CHROOT}/boot/dtbs/qcom
 
 # create missing directory
 mkdir -p ${CHROOT}/lib/firmware/msm-firmware-loader
-
-# testing copy leds config files
-mkdir -p ${CHROOT}/home/user
-cp leds_config/leds_config.sh ${CHROOT}/home/user
-cp leds_config/leds_config.service ${CHROOT}/etc/systemd/system
 
 # update fstab
 echo "PARTUUID=80780b1d-0fe1-27d3-23e4-9244e62f8c46\t/boot\text2\tdefaults\t0 2" > ${CHROOT}/etc/fstab
