@@ -222,3 +222,8 @@ Battery charging does not work properly, in fastboot mode it is a little better.
   sudo systemctl enable leds_config
   sudo systemctl reboot 
   ```
+### Build locally
+I tried to compile a project on WSL2 Ubuntu 22, errors occurred, you need to run a command:
+ ```shell
+  sudo update-binfmts --enable
+  ```
