@@ -1699,7 +1699,7 @@
 				function = "gpio";
 				drive-strength = <0x02>;
 				bias-disable;
-				pins = "gpio16\0gpio18\0gpio19\0gpio24\0gpio25";
+				pins = "gpio16\0gpio18\0gpio19\0gpio24\0gpio25\0gpio8\0gpio9";
 				phandle = <0x98>;
 			};
 		};
