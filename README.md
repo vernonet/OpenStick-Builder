@@ -179,7 +179,7 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
   sudo nmcli connection modify lte gsm.apn <your_apn>
   sudo nmcli connection up lte
   ```
-- To enable RNDIS on **MF800** boards
+- To enable RNDIS on **MF800** boards (this is already included in my fork):
   ```shell
   sudo apt update
   sudo apt install  libusbgx2
@@ -189,7 +189,7 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
   ```shell
   echo usb-gadget >  /sys/class/leds/green:sms/trigger
   ```
-- Adding LED configuration to startup:
+- Adding LED configuration to startup(this is already included in my fork):
 
   create file leds_config.sh on /home/user 
   ```shell
