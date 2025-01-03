@@ -1,10 +1,8 @@
 #!/bin/sh -e
 
-#CHROOT=${CHROOT=$(pwd)/rootfs}
 
-# copy leds config files, comment out the following 5 lines if you don't want automatic LED setup 
-mkdir -p dist/home
-mkdir -p dist/home/user
+# copy leds config files
+cp -a rootfs/home dist/home
 cp leds_config/leds_config.sh dist/home/user
 chmod +x dist/home/user/leds_config.sh
 mkdir -p dist/etc/systemd
