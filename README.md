@@ -174,7 +174,7 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
 ---------------------------------------------------------------------------------------------------
   
 # My personal experience:
-Last <a href="https://mega.nz/file/0NhFWAwK#Rz4k5DNquBxdBnS3UWuoM0W1oAnrcMsfw7Lirts4VAQ" rel="nofollow">binary</a>, tested on fy-mf800 board. 
+Last <a href="https://mega.nz/file/0NhFWAwK#Rz4k5DNquBxdBnS3UWuoM0W1oAnrcMsfw7Lirts4VAQ" rel="nofollow">binary</a>, tested on fy-mf800 board, see instructions above. 
 - To set the APN for your cellular network provider:
   ```shell
   sudo nmcli connection modify lte gsm.apn <your_apn>
