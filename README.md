@@ -222,6 +222,14 @@ Last <a href="https://mega.nz/file/0NhFWAwK#Rz4k5DNquBxdBnS3UWuoM0W1oAnrcMsfw7Li
   sudo systemctl enable leds_config
   sudo systemctl reboot 
   ```
+- To disable wifi module:
+  ```shell
+  sudo nmcli radio wifi off  
+  ```
+- To enable wifi module:
+  ```shell
+  sudo nmcli radio wifi on  
+  ```  
 ### Build locally
 I tried to compile a project on WSL2 Ubuntu 22, errors occurred, you need to run a command:
  ```shell
