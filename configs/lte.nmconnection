@@ -5,7 +5,7 @@ type=gsm
 interface-name=wwan0qmi0
 
 [gsm]
-apn=internet
+apn=www.kyivstar.net
 
 [ipv4]
 method=auto
