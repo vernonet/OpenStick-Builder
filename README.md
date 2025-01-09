@@ -229,7 +229,12 @@ Last <a href="https://mega.nz/file/0NhFWAwK#Rz4k5DNquBxdBnS3UWuoM0W1oAnrcMsfw7Li
 - To enable wifi module:
   ```shell
   sudo nmcli radio wifi on  
-  ```  
+  ```
+-  Battery voltage???
+  ```shell
+  cat /sys/bus/iio/devices/iio:device0/in_voltage7_input
+  ```
+ 
 ### Build locally
 I tried to compile a project on WSL2 Ubuntu 22, errors occurred, you need to run a command:
  ```shell
