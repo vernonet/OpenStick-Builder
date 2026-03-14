@@ -1,8 +1,10 @@
 #!/bin/sh -e
 
 CHROOT=${CHROOT=$(pwd)/rootfs}
-RELEASE=${RELEASE=stable}
-#RELEASE=${RELEASE=bookworm}
+#stable libconfig11
+#RELEASE=${RELEASE=stable}
+#bookworm libconfig9
+RELEASE=${RELEASE=bookworm}
 HOST_NAME=${HOST_NAME=openstick-debian}
 
 rm -rf ${CHROOT}
