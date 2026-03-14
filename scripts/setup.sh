@@ -17,7 +17,7 @@ apt install -qqy --no-install-recommends \
     dnsmasq \
     hostapd \
     iptables \
-    libconfig9 \
+    libconfig11 \
     locales \
     modemmanager \
     netcat-traditional \
@@ -31,7 +31,6 @@ apt install -qqy --no-install-recommends \
     tzdata \
     wireguard-tools \
     mc \
-    libusbgx2 \
     wpasupplicant
 apt clean
 rm -rf /var/lib/apt/lists/*
