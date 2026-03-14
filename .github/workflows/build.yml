@@ -27,6 +27,9 @@ jobs:
       - name: Build gadget-tool
         run: sudo sh -e scripts/build_gt.sh
 
+      - name: Create leds_config service
+        run: sudo sh -e scripts/copy_leds_config.sh
+
       - name: Create images
         run: sudo sh -e scripts/build_images.sh
 
