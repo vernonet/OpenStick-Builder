@@ -9,6 +9,8 @@ echo "locales locales/default_environment_locale select en_US.UTF-8" | debconf-s
 echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8" | debconf-set-selections
 rm -f "/etc/locale.gen"
 
+#stable - libconfig11;  bookworm libconfig9  libusbgx2
+
 apt update -qqy
 apt upgrade -qqy
 apt autoremove -qqy
@@ -17,7 +19,7 @@ apt install -qqy --no-install-recommends \
     dnsmasq \
     hostapd \
     iptables \
-    libconfig11 \
+    libconfig9 \
     locales \
     modemmanager \
     netcat-traditional \
@@ -31,6 +33,7 @@ apt install -qqy --no-install-recommends \
     tzdata \
     wireguard-tools \
     mc \
+    libusbgx2 \
     wpasupplicant
 apt clean
 rm -rf /var/lib/apt/lists/*
