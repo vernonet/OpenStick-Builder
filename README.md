@@ -204,7 +204,7 @@ Last <a href="https://mega.nz/file/0NhFWAwK#Rz4k5DNquBxdBnS3UWuoM0W1oAnrcMsfw7Li
   ```shell
   chmod +x leds_config.sh
   ```
-  create file "leds_config.service" on /etc/systemmd/system
+  create file "leds_config.service" on /etc/systemd/system
   ```shell
   [Unit]
   Description=Config Leds
