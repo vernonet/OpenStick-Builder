@@ -3,7 +3,14 @@
 
 # copy leds config files
 cp -a rootfs/home dist/home
-cp leds_config/leds_config.sh dist/home/user
+
+if [ "$RELEASE_TYPE" = "bookworm" ]; then
+    cp leds_config/leds_config.sh dist/home/user
+else
+    cp leds_config/leds_config_new.sh dist/home/user/leds_config.sh
+fi
+
+
 chmod +x dist/home/user/leds_config.sh
 mkdir -p dist/etc/systemd
 mkdir -p dist/etc/systemd/system
