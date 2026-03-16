@@ -20,7 +20,6 @@ COMMON_PACKAGES="
     dnsmasq
     hostapd
     iptables
-    libconfig9
     locales
     modemmanager
     netcat-traditional
@@ -40,7 +39,9 @@ COMMON_PACKAGES="
 apt install -qqy --no-install-recommends $COMMON_PACKAGES
 
 if [ "$RELEASE_TYPE" = "bookworm" ]; then
-    apt install -qqy --no-install-recommends libusbgx2
+    apt install -qqy --no-install-recommends libusbgx2  libconfig9
+else    
+   apt install -qqy --no-install-recommends libconfig11
 fi
 
 apt clean
