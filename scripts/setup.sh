@@ -14,27 +14,35 @@ rm -f "/etc/locale.gen"
 apt update -qqy
 apt upgrade -qqy
 apt autoremove -qqy
-apt install -qqy --no-install-recommends \
-    bridge-utils \
-    dnsmasq \
-    hostapd \
-    iptables \
-    libconfig9 \
-    locales \
-    modemmanager \
-    netcat-traditional \
-    net-tools \
-    network-manager \
-    openssh-server \
-    qrtr-tools \
-    rmtfs \
-    sudo \
-    systemd-timesyncd \
-    tzdata \
-    wireguard-tools \
-    mc \
-    libusbgx2 \
+
+COMMON_PACKAGES="
+    bridge-utils
+    dnsmasq
+    hostapd
+    iptables
+    libconfig9
+    locales
+    modemmanager
+    netcat-traditional
+    net-tools
+    network-manager
+    openssh-server
+    qrtr-tools
+    rmtfs
+    sudo
+    systemd-timesyncd
+    tzdata
+    wireguard-tools
+    mc
     wpasupplicant
+"
+
+apt install -qqy --no-install-recommends $COMMON_PACKAGES
+
+if [ "$RELEASE_TYPE" = "bookworm" ]; then
+    apt install -qqy --no-install-recommends libusbgx2
+fi
+
 apt clean
 rm -rf /var/lib/apt/lists/*
 
