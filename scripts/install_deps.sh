@@ -1,5 +1,10 @@
 #!/bin/sh -e
 
+#export RELEASE_TYPE=bookworm
+export RELEASE_TYPE=stable
+echo "Building for release: $RELEASE_TYPE"
+
+
 apt update
 apt install -y \
     android-sdk-libsparse-utils \
