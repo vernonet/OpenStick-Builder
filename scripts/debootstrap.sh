@@ -4,7 +4,14 @@ CHROOT=${CHROOT=$(pwd)/rootfs}
 #stable libconfig11
 #RELEASE=${RELEASE=stable}
 #bookworm libconfig9
-RELEASE=${RELEASE=bookworm}
+#RELEASE=${RELEASE=bookworm}
+
+if [ "$RELEASE_TYPE" = "bookworm" ]; then
+    RELEASE=${RELEASE=bookworm}
+else
+    RELEASE=${RELEASE=stable}
+fi
+
 HOST_NAME=${HOST_NAME=openstick-debian}
 
 rm -rf ${CHROOT}
