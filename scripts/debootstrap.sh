@@ -74,6 +74,9 @@ cp configs/extlinux.conf ${CHROOT}/boot/extlinux
 
 # copy custom dtb's
 cp dtbs/* ${CHROOT}/boot/dtbs/qcom
+if [ "$RELEASE_TYPE" = "stable" ]; then
+    cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
+fi
 
 # create missing directory
 mkdir -p ${CHROOT}/lib/firmware/msm-firmware-loader
