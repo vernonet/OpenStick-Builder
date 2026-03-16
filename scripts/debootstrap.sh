@@ -73,9 +73,12 @@ mkdir -p ${CHROOT}/boot/extlinux
 cp configs/extlinux.conf ${CHROOT}/boot/extlinux
 
 # copy custom dtb's
-cp dtbs/* ${CHROOT}/boot/dtbs/qcom
+#cp dtbs/* ${CHROOT}/boot/dtbs/qcom
+cp dtbs/msm8916-jz01-45-v33.dtb ${CHROOT}/boot/dtbs/qcom
 if [ "$RELEASE_TYPE" = "stable" ]; then
     cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
+else
+    cp dtbs/msm8916-fy-mf800.dtb ${CHROOT}/boot/dtbs/qcom
 fi
 
 # create missing directory
