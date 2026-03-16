@@ -1,5 +1,8 @@
 #!/bin/sh -e
 
+#export RELEASE_TYPE=bookworm
+export RELEASE_TYPE=stable
+
 echo "Install dependencies\n"
 scripts/install_deps.sh
 
