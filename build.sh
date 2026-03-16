@@ -2,6 +2,8 @@
 
 #export RELEASE_TYPE=bookworm
 export RELEASE_TYPE=stable
+echo "Building for release: $RELEASE_TYPE"
+
 
 echo "Install dependencies\n"
 scripts/install_deps.sh
