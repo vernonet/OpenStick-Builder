@@ -5,7 +5,8 @@
 cp -a rootfs/home dist/home
 
 if [ "$RELEASE_TYPE" = "bookworm" ]; then
-    cp leds_config/leds_config.sh dist/home/user
+    #cp leds_config/leds_config.sh dist/home/user
+    cp leds_config/leds_config_new.sh dist/home/user/leds_config.sh
 else
     cp leds_config/leds_config_new.sh dist/home/user/leds_config.sh
 fi
