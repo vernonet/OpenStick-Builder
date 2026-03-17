@@ -4,13 +4,13 @@ CHROOT=${CHROOT=$(pwd)/rootfs}
 #stable libconfig11
 #RELEASE=${RELEASE=stable}
 #bookworm libconfig9
-#RELEASE=${RELEASE=bookworm}
+RELEASE=${RELEASE=bookworm}
 
-if [ "$RELEASE_TYPE" = "bookworm" ]; then
-    RELEASE=${RELEASE=bookworm}
-else
-    RELEASE=${RELEASE=stable}
-fi
+# if [ "$RELEASE_TYPE" = "bookworm" ]; then
+    # RELEASE=${RELEASE=bookworm}
+# else
+    # RELEASE=${RELEASE=stable}
+# fi
 
 HOST_NAME=${HOST_NAME=openstick-debian}
 
@@ -73,14 +73,14 @@ mkdir -p ${CHROOT}/boot/extlinux
 cp configs/extlinux.conf ${CHROOT}/boot/extlinux
 
 # copy custom dtb's
-#cp dtbs/* ${CHROOT}/boot/dtbs/qcom
-cp dtbs/msm8916-jz01-45-v33.dtb ${CHROOT}/boot/dtbs/qcom
-if [ "$RELEASE_TYPE" = "bookworm" ]; then
-    #cp dtbs/msm8916-fy-mf800.dtb ${CHROOT}/boot/dtbs/qcom   
-    cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
-else
-    cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
-fi
+cp dtbs/* ${CHROOT}/boot/dtbs/qcom
+# if [ "$RELEASE_TYPE" = "bookworm" ]; then
+    # #cp dtbs/msm8916-fy-mf800.dtb ${CHROOT}/boot/dtbs/qcom   
+    # cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
+# else
+    # cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
+# fi
+cp dtbs/msm8916-fy-mf800_new.dtb ${CHROOT}/boot/dtbs/qcom/msm8916-fy-mf800.dtb
 
 # create missing directory
 mkdir -p ${CHROOT}/lib/firmware/msm-firmware-loader

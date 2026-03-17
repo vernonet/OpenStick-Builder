@@ -36,9 +36,9 @@ CMAKE_FLAGS="
     -DCMAKE_SYSTEM_PROCESSOR=aarch64
 "
 
-if [ "$RELEASE_TYPE" = "trixie" ]; then
-    CMAKE_FLAGS="$CMAKE_FLAGS -DCMAKE_C_FLAGS=-L$(pwd)/dist/usr/lib"
-fi
+# if [ "$RELEASE_TYPE" = "trixie" ]; then
+    # CMAKE_FLAGS="$CMAKE_FLAGS -DCMAKE_C_FLAGS=-L$(pwd)/dist/usr/lib"
+# fi
 
 PKG_CONFIG_PATH=${CHROOT}/usr/lib/pkgconfig:${CHROOT}/usr/lib/aarch64-linux-gnu/pkgconfig \
     cmake $CMAKE_FLAGS \

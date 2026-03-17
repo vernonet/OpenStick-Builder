@@ -38,11 +38,12 @@ COMMON_PACKAGES="
 
 apt install -qqy --no-install-recommends $COMMON_PACKAGES
 
-if [ "$RELEASE_TYPE" = "bookworm" ]; then
-    apt install -qqy --no-install-recommends libusbgx2  libconfig9
-else    
-   apt install -qqy --no-install-recommends libconfig11
-fi
+# if [ "$RELEASE_TYPE" = "bookworm" ]; then
+    # apt install -qqy --no-install-recommends libusbgx2  libconfig9
+# else    
+   # apt install -qqy --no-install-recommends libconfig11
+# fi
+apt install -qqy --no-install-recommends libusbgx2  libconfig9
 
 apt clean
 rm -rf /var/lib/apt/lists/*
