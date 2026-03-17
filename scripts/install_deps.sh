@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 #export RELEASE_TYPE=bookworm
-export RELEASE_TYPE=stable
+export RELEASE_TYPE=trixie
 echo "Building for release: $RELEASE_TYPE"
 
 
