@@ -36,7 +36,7 @@ CMAKE_FLAGS="
     -DCMAKE_SYSTEM_PROCESSOR=aarch64
 "
 
-if [ "$RELEASE_TYPE" = "stable" ]; then
+if [ "$RELEASE_TYPE" = "trixie" ]; then
     CMAKE_FLAGS="$CMAKE_FLAGS -DCMAKE_C_FLAGS=-L$(pwd)/dist/usr/lib"
 fi
 
