@@ -12,7 +12,7 @@ umount mnt
 # create sparse android images 
 img2simg boot.raw boot.bin
 
-# copy boot.bin to host
+# copy boot.bin to windows host (WSL2) 
 cp boot.bin /mnt/e/4G_LTE/boot.bin
 
 
