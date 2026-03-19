@@ -175,6 +175,7 @@ Edit [`scripts/setup.sh`](scripts/setup.sh) to add/remove packages. Note that th
   
 # My personal experience:
 Last <a href="https://mega.nz/file/8BwU1CaY#fe7kgMb0V5Nv_Vn8_aqxevMXOmYs781T9MAP6MwNjEU" rel="nofollow">binary</a> (charging and modem work, LED service added, you can turn off the device with the button), tested on fy-mf800 board, see instructions above. 
+Use <a href="https://winscp.net" rel="nofollow">WinSCP </a> (Windows Secure Copy) is an open source SFTP client, FTP client, WebDAV client and SCP client for Windows.
 - To set the APN for your cellular network provider:
   ```shell
   sudo nmcli connection modify lte gsm.apn <your_apn>
